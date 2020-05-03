@@ -7,9 +7,9 @@ Master: [![CircleCI](https://circleci.com/gh/inuinana/data_uploader/tree/master.
 ## How to run locally on Mac
 
 ## Get PostgreSQL Database and run
-$ brew update
-$ brew doctor
-$ brew install postgres
+$ brew update  
+$ brew doctor  
+$ brew install postgres  
 $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 
 ## Now run the app
