@@ -19,7 +19,8 @@ class ConfigReader:
         self.DEPLOYMENT = os.environ.get('DEPLOYMENT')
 
         self.config_folder_path = os.path.join(f'../app/config/{self.DEPLOYMENT}')
-        assert os.path.isdir(self.config_folder_path), f"{self.config_folder_path} is not a valid configuration folder!"
+        assert os.path.isdir(self.config_folder_path), f"{self.config_folder_path} is not a valid configuration folder!" \
+                                                       f"Working diretory is {os.getcwd()}"
         cfg = configparser.ConfigParser()
         self.cfg = cfg
 
