@@ -39,6 +39,10 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
       - run:
           command: app/manage.py test
           name: Test
