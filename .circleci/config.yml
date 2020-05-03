@@ -5,6 +5,7 @@ orbs:
 
 jobs:
   build-and-test:
+    working_directory: ~/app
     docker:
       # Python environment
       - image: circleci/python:3.6.2-stretch-browsers
