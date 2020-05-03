@@ -4,20 +4,20 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  docker:
-    # Python environment
-    - image: circleci/python:3.6.2-stretch-browsers
-      environment:
-        TEST_DATABASE_URL: localhost
-
-    # Postgres DB
-    - image: circleci/postgres:12
-      environment:
-        POSTGRES_USER: postgres
-        POSTGRES_DB: postgres
-        POSTGRES_PASSWORD: 'postgres'
-
   build-and-test:
+    docker:
+      # Python environment
+      - image: circleci/python:3.6.2-stretch-browsers
+        environment:
+          TEST_DATABASE_URL: localhost
+
+      # Postgres DB
+      - image: circleci/postgres:12
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: postgres
+          POSTGRES_PASSWORD: 'postgres'
+
     executor: python/default
     steps:
       - checkout
