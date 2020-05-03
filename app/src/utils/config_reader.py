@@ -2,7 +2,9 @@
 @author: Akihiro Inui
 """
 import os
+import sys
 import configparser
+sys.path.insert(0, os.getcwd())
 
 
 class ConfigReader:
