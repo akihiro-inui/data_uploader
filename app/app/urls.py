@@ -14,8 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls import url
 from django.urls import path
+from django.urls import include
+import uploader.views as file_upload
+from django.views.generic.base import TemplateView
 
 urlpatterns = [
+    url(r'^$', TemplateView.as_view(template_name='index.html'),
+        name='home'),
+    path('success/url/', file_upload.success),
+    path('uploader/', include('uploader.urls')),
     path('admin/', admin.site.urls),
 ]
+
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
