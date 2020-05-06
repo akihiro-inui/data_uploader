@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     'uploader',
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,3 +133,5 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     BASE_DIR + '/templates/',
 )
+
+LOGIN_REDIRECT_URL = '/uploader/'

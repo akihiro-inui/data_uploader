@@ -1,14 +1,17 @@
+import sys
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .forms import UploadFileForm
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
-import sys
 
+@login_required
 def index(request):
     return render(request, 'app/upload.html')
 
-# ------------------------------------------------------------------
+
+@login_required
 def file_upload(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
@@ -21,9 +24,9 @@ def file_upload(request):
     else:
         form = UploadFileForm()
     return render(request, 'app/upload.html', {'form': form})
-#
-#
-# ------------------------------------------------------------------
+
+
+@login_required
 def handle_uploaded_file(file_obj):
     sys.stderr.write("*** handle_uploaded_file *** aaa ***\n")
     sys.stderr.write(file_obj.name + "\n")
@@ -34,10 +37,10 @@ def handle_uploaded_file(file_obj):
             sys.stderr.write("*** handle_uploaded_file *** ccc ***\n")
             destination.write(chunk)
             sys.stderr.write("*** handle_uploaded_file *** eee ***\n")
-#
-# ------------------------------------------------------------------
+
+
+@login_required
 def success(request):
     str_out = "Success!<p />"
     str_out += "成功<p />"
     return HttpResponse(str_out)
-# ------------------------------------------------------------------

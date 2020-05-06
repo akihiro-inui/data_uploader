@@ -25,6 +25,7 @@ urlpatterns = [
         name='home'),
     path('success/url/', file_upload.success),
     path('uploader/', include('uploader.urls')),
+    path('accounts/', include('accounts.urls')),
     path('admin/', admin.site.urls),
 ]
 
